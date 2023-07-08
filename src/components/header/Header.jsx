@@ -1,6 +1,7 @@
 import React from "react";
 import LOGO from "../../assets/logowithoutback.png";
 
+
 const Header = () => {
   return (
     <header className={`flex items-center h-screen justify-center bg-gradient-to-b from-black to-red-950`}>

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { WeatherData } from "../../context/WeatherProvider";
 import WeatherCard from "../../weathercards/WeatherCard";
+import CHARACTER from '../../assets/dndCharacter.png';
 
 import { Pagination } from "swiper/modules";
 
@@ -14,20 +15,30 @@ const Weather = () => {
 
   const [date, setDate] = useState(new Date());
 
-  console.log(date.getHours())
+  console.log(date.getHours());
 
   return (
-    <div className="h-screen bg-gradient-to-b from-red-950 to-black border flex items-center justify-center">
-      <div className="text-white w-2/4 h-full">
+    <div className="h-screen bg-gradient-to-b from-red-950 to-black flex items-center justify-center">
+      <div className="w-2/4 h-full flex items-center justify-center">
         {!cityWeather ? (
-          <div className="">¿Aún no has buscado?</div>
+          <div className="font-bold text-6xl text-white mt-0 mb-0 ml-auto mr-auto">¿Aún no has buscado?</div>
         ) : (
-          <Swiper>
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={50}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation
+          >
             <SwiperSlide>
               <WeatherCard
-                containerCard={
-                  `${date.getHours() < 12 ? 'bg-cloudMorning' : date.getHours() >= 12 || date.getHours() < 20 ? 'bg-cloudAfternoon' : 'bg-cloudNight'} w-[331.64px] h-[717.51px] rounded-2xl bg-cover flex flex-col items-center justify-evenly mt-20 mb-0 ml-auto mr-auto`
-                }
+                containerCard={`${
+                  date.getHours() < 12
+                    ? "bg-cloudMorning"
+                    : date.getHours() >= 12 && date.getHours() < 20
+                    ? "bg-cloudAfternoon"
+                    : "bg-cloudNight"
+                } w-[331.64px] h-[717.51px] rounded-2xl bg-cover flex flex-col items-center justify-evenly mt-20 mb-0 ml-auto mr-auto`}
                 firstCard={
                   "w-[278.95px] h-[299.09px] rounded-3xl p-2 bg-winterDiv flex flex-col items-center justify-evenly"
                 }
@@ -59,9 +70,13 @@ const Weather = () => {
             </SwiperSlide>
             <SwiperSlide>
               <WeatherCard
-                containerCard={
-                  `${date.getHours() < 12 ? 'bg-cloudMorning' : date.getHours() >= 12 || date.getHours() < 20 ? 'bg-cloudAfternoon' : 'bg-cloudNight'} w-[331.64px] h-[717.51px] rounded-2xl bg-cover flex flex-col items-center justify-evenly mt-20 mb-0 ml-auto mr-auto`
-                }
+                containerCard={`${
+                  date.getHours() < 12
+                    ? "bg-cloudMorning"
+                    : date.getHours() >= 12 && date.getHours() < 20
+                    ? "bg-cloudAfternoon"
+                    : "bg-cloudNight"
+                } w-[331.64px] h-[717.51px] rounded-2xl bg-cover flex flex-col items-center justify-evenly mt-20 mb-0 ml-auto mr-auto`}
                 firstCard={
                   "w-[278.95px] h-[299.09px] rounded-3xl p-2 bg-winterDiv flex flex-col items-center justify-evenly"
                 }
@@ -93,14 +108,18 @@ const Weather = () => {
             </SwiperSlide>
             <SwiperSlide>
               <WeatherCard
-                containerCard={
-                  `${date.getHours() < 12 ? 'bg-cloudMorning' : date.getHours() >= 12 || date.getHours() < 20 ? 'bg-cloudAfternoon' : 'bg-cloudNight'} w-[331.64px] h-[717.51px] rounded-2xl bg-cover flex flex-col items-center justify-evenly mt-20 mb-0 ml-auto mr-auto`
-                }
+                containerCard={`${
+                  date.getHours() < 12
+                    ? "bg-cloudMorning"
+                    : date.getHours() >= 12 && date.getHours() < 20
+                    ? "bg-cloudAfternoon"
+                    : "bg-cloudNight"
+                } w-[331.64px] h-[717.51px] rounded-2xl bg-cover flex flex-col items-center justify-evenly mt-20 mb-0 ml-auto mr-auto`}
                 firstCard={
                   "w-[278.95px] h-[299.09px] rounded-3xl p-2 bg-winterDiv flex flex-col items-center justify-evenly"
                 }
                 dayCss={"text-paragrapgW text-2xl"}
-                dayText={"Today"}
+                dayText={"Day after tomorrow"}
                 imgTemp={"flex items-center justify-between"}
                 srcImg={`https://openweathermap.org/img/wn/${temp[13].weather[0].icon}@2x.png`}
                 todayTemp={temp[13].main.temp}
@@ -128,7 +147,9 @@ const Weather = () => {
           </Swiper>
         )}
       </div>
-      <div className="text-white w-2/4 h-full border"></div>
+      <div className="text-white w-2/4 h-full relative">
+      <img className="absolute left-10 top-36" src={CHARACTER} alt="character"></img>
+      </div>
     </div>
   );
 };
