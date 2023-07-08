@@ -4,7 +4,7 @@ import { WeatherData } from "../../context/WeatherProvider";
 import { getData } from "../../functions/getdata";
 
 const Nav = () => {
-  const {setInputWeather, inputWeather, setCityWeather } = useContext(WeatherData);
+  const {setInputWeather, inputWeather, setCityWeather, setTemp } = useContext(WeatherData);
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
@@ -17,15 +17,14 @@ const Nav = () => {
     e.preventDefault();
     try {
       const weather = await getData(
-        `https://api.openweathermap.org/data/2.5/weather?q=${inputWeather}&appid=${"fff84c545190e505b8ce27ebf90fdc60"}&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${inputWeather}&appid=${"fff84c545190e505b8ce27ebf90fdc60"}&units=metric`
       );
-      setCityWeather(weather);
+      setCityWeather(weather.city);
+      setTemp(weather.list)
     } catch (error) {
       console.error("An error appeared", error);
     }
   }
-
-  console.log(inputWeather);
 
   return (
     <nav className="pt-[0.7rem] pb-[0.7rem] pl-[1.7rem] pr-[1.7rem] fixed left-[50%] translate-x-[-50%] bottom-[2rem] flex justify-center gap-1 rounded-3xl backdrop:blur-[15px] w-auto border border-white">

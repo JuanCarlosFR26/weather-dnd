@@ -6,9 +6,10 @@ const WeatherProvider = ({children}) => {
 
     const [inputWeather, setInputWeather] = useState("");
     const [cityWeather, setCityWeather] = useState("");
+    const [temp, setTemp] = useState("");
 
   return (
-    <WeatherData.Provider value={{inputWeather, setInputWeather, cityWeather, setCityWeather}}>
+    <WeatherData.Provider value={{inputWeather, setInputWeather, cityWeather, setCityWeather, temp, setTemp}}>
         {children}
     </WeatherData.Provider>
   )

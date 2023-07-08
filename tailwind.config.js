@@ -28,10 +28,15 @@ module.exports = {
         mirror: 'rgba(250, 250, 250, 0.1)',
         gradient: 'rgb(148, 3, 3)',
         shadowNav: 'rgba(0, 0, 0, 0.3)',
-        rotate: '#101010'
+        rotate: '#101010',
+        winterDiv: '#91B4C6'
+      },
+      textColor: {
+        paragrapgW: '#CAD7DF'
       },
       backgroundImage: {
-        conic: 'conic-gradient(red 20deg, transparent 120deg)'
+        conic: 'conic-gradient(red 20deg, transparent 120deg)',
+        winter: "url('/src/assets/winter.svg')"
       },
       boxShadow: {
         mirror: '2px 4px 20px 2px rgba(0, 0, 0, 0.6)',
