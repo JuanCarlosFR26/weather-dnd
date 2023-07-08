@@ -36,7 +36,9 @@ module.exports = {
       },
       backgroundImage: {
         conic: 'conic-gradient(red 20deg, transparent 120deg)',
-        winter: "url('/src/assets/winter.svg')"
+        cloudMorning: "url('/src/assets/cloudMorning.svg')",
+        cloudAfternoon: "url('/src/assets/cloudAfternoon.svg')",
+        cloudNight: "url('/src/assets/cloudNight.svg')"
       },
       boxShadow: {
         mirror: '2px 4px 20px 2px rgba(0, 0, 0, 0.6)',
